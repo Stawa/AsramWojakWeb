@@ -43,7 +43,7 @@ export default function Home() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-white">Server IPs</h2>
             <p className="text-lg md:text-xl mx-auto mt-4 max-w-2xl">
-              Connect to Asram Wojak's server and join the adventure!
+              Connect to Asram Wojak&apos;s server and join the adventure!
               <br />
               Connect to our server now on Java or Bedrock
             </p>
