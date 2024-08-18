@@ -20,7 +20,6 @@ export default function Home() {
               SMP environment tailored for an engaging experience.
             </p>
 
-            {/* Buttons */}
             <div className="flex justify-center space-x-4">
               <a
                 href="#server-ips"
@@ -29,7 +28,7 @@ export default function Home() {
                 Join Now!
               </a>
               <a
-                href="#"
+                href="#features"
                 className="inline-block px-6 py-3 text-blue-500 border border-blue-500 hover:bg-blue-100 rounded-md font-semibold transition duration-300"
               >
                 Features
@@ -42,7 +41,12 @@ export default function Home() {
       <section id="server-ips" className="py-14">
         <div className="container mx-auto px-6">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-white">Server IPs</h2>
+            <h2 className="text-3xl font-bold text-white">Server IPs</h2>
+            <p className="text-lg md:text-xl mx-auto mt-4 max-w-2xl">
+              Connect to Asram Wojak's server and join the adventure!
+              <br />
+              Connect to our server now on Java or Bedrock
+            </p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-center gap-6">
@@ -134,43 +138,44 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap gap-6 justify-center">
-            <div className="rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
+            <div className="border border-neutral-600 bg-neutral-950 rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/Command_Block.webp"
-                  alt="Feature 1"
+                  alt="Command Block Image"
                   width={64}
                   height={64}
+                  unoptimized
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">Custom Plugins</h3>
-              <p className="text-gray-700">
+              <p className="text-slate-400">
                 Enhance your gameplay with a range of custom plugins tailored to
                 improve your server experience.
               </p>
             </div>
 
-            <div className="rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
+            <div className="border border-neutral-600 bg-neutral-950 rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/Heart.webp"
-                  alt="Feature 2"
+                  alt="Heart Image"
                   width={64}
                   height={64}
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">Friendly Community</h3>
-              <p className="text-gray-700">
+              <p className="text-slate-400">
                 Join a welcoming community where players help each other and
                 build together.
               </p>
             </div>
 
-            <div className="rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
+            <div className="border border-neutral-600 bg-neutral-950 rounded-lg shadow-lg p-6 w-full md:w-1/3 lg:w-1/4">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/Compass.webp"
-                  alt="Feature 3"
+                  alt="Compass Image"
                   width={64}
                   height={64}
                   unoptimized
@@ -179,7 +184,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-2">
                 Cross-Platform Support
               </h3>
-              <p className="text-gray-700">
+              <p className="text-slate-400">
                 Play with friends across different platforms, including
                 Minecraft Java and Bedrock editions.
               </p>

@@ -16,11 +16,11 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="flex items-center">
           <Image
-            src="/image.jpg"
+            src="/Java_Edition.webp"
             alt="Logo"
             width={40}
             height={40}
-            className="mr-3 rounded-full"
+            className="mr-3"
           />
           <h1 className="text-2xl font-semibold text-white">Asram Wojak</h1>
         </div>
