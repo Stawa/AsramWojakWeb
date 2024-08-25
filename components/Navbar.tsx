@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
 
 export default function Navbar() {
@@ -11,107 +11,80 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const navItems = [{ href: "#", label: "Coming Soon", available: false }];
+
   return (
-    <nav className="border-b border-sky-500">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        <div className="flex items-center">
-          <Image
-            src="/Java_Edition.webp"
-            alt="Logo"
-            width={40}
-            height={40}
-            className="mr-3"
-          />
-          <h1 className="text-2xl font-semibold text-white">Asram Wojak</h1>
-        </div>
-
-        {/* Hamburger Icon for Mobile */}
-        <div className="flex md:hidden">
-          <button
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+    <nav className="bg-gray-900 shadow-lg border-b-2 border-indigo-600">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Image
+              src="/Java_Edition.webp"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="mr-3"
+            />
+            <h1 className="text-xl font-bold text-indigo-300">Asram Wojak</h1>
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.available ? item.href : "#"}
+                  className={`text-gray-400 px-3 py-2 rounded-md text-sm font-medium transition duration-300 flex items-center ${
+                    item.available
+                      ? "hover:bg-indigo-700 hover:text-indigo-200"
+                      : "opacity-50 cursor-not-allowed"
+                  }`}
+                  target={item.available ? "_blank" : "_self"}
+                  rel={item.available ? "noopener noreferrer" : ""}
+                  onClick={(e) => !item.available && e.preventDefault()}
+                >
+                  {item.label}
+                  {item.available && <FiExternalLink className="ml-1" />}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-indigo-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Full Menu for Desktop */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a
-            href="https://panel.asram-wojak.my.id"
-            className="text-white font-semibold hover:text-sky-500 transition duration-300 flex items-center"
-            target="_blank"
-          >
-            Panel
-            <FiExternalLink className="ml-1" />
-          </a>
-          <a
-            href="https://admin.asram-wojak.my.id"
-            className="text-white font-semibold hover:text-sky-500 transition duration-300 flex items-center"
-            target="_blank"
-          >
-            Dashboard
-            <FiExternalLink className="ml-1" />
-          </a>
-          <a
-            href="https://panel.asram-wojak.my.id/status"
-            className="text-white font-semibold hover:text-sky-500 transition duration-300 flex items-center"
-            target="_blank"
-          >
-            Server Status
-            <FiExternalLink className="ml-1" />
-          </a>
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? (
+                <FiX className="block h-6 w-6" />
+              ) : (
+                <FiMenu className="block h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
-          <ul className="font-medium flex flex-col p-4 space-y-2 border-t border-sky-500">
-            <li className="relative">
+        <div className="md:hidden bg-gray-800 border-t border-indigo-600">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
               <a
-                href="https://panel.asram-wojak.my.id"
-                className="flex items-center justify-between rounded px-2 py-2 text-sm text-white font-semibold bg-gray-800 hover:bg-gray-700 transition duration-300"
-                target="_blank"
+                key={item.label}
+                href={item.available ? item.href : "#"}
+                className={`text-gray-300 block px-3 py-2 rounded-md text-base font-medium transition duration-300 flex items-center justify-between ${
+                  item.available
+                    ? "hover:bg-indigo-700 hover:text-indigo-200"
+                    : "opacity-50 cursor-not-allowed"
+                }`}
+                target={item.available ? "_blank" : "_self"}
+                rel={item.available ? "noopener noreferrer" : ""}
+                onClick={(e) => !item.available && e.preventDefault()}
               >
-                <span className="ml-1">Panel</span>
-                <FiExternalLink className="ml-2" />
+                {item.label}
+                {item.available && <FiExternalLink className="ml-2" />}
               </a>
-            </li>
-            <li className="relative">
-              <a
-                href="https://admin.asram-wojak.my.id"
-                className="flex items-center justify-between rounded px-2 py-2 text-sm text-white font-semibold bg-gray-800 hover:bg-gray-700 transition duration-300"
-                target="_blank"
-              >
-                <span className="ml-1">Dashboard</span>
-                <FiExternalLink className="ml-2" />
-              </a>
-            </li>
-            <li className="relative">
-              <a
-                href="https://panel.asram-wojak.my.id/status"
-                className="flex items-center justify-between rounded px-2 py-2 text-sm text-white font-semibold bg-gray-800 hover:bg-gray-700 transition duration-300"
-                target="_blank"
-              >
-                <span className="ml-1">Server Status</span>
-                <FiExternalLink className="ml-2" />
-              </a>
-            </li>
-          </ul>
+            ))}
+          </div>
         </div>
       )}
     </nav>
