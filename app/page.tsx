@@ -252,11 +252,11 @@ export default function Home() {
                         Server IP:
                       </p>
                       <p className="text-lg font-medium break-all text-teal-100">
-                        mc.asram-wojak.my.id
+                        play.asram-wojak.my.id
                       </p>
                     </div>
                     <ClipboardButton
-                      text="mc.asram-wojak.my.id"
+                      text="play.asram-wojak.my.id"
                       buttonStyle="bg-teal-700 hover:bg-teal-800 text-white rounded-lg px-4 py-2 transition-all duration-300 mt-2 sm:mt-0"
                     />
                   </div>
