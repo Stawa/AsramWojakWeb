@@ -1,38 +1,37 @@
 "use client";
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
-  const handleClick = (message: string) => {
-    alert(message);
-  };
-
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8 border-t-2 border-indigo-600">
+    <footer className="bg-gradient-to-r from-gray-900 to-indigo-900 text-gray-300 py-8 sm:py-10 border-t-4 border-t-blue-500">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center bg-gray-800 rounded-lg p-4 sm:p-6 border border-indigo-600 hover:shadow-indigo-500/30 transition-shadow duration-300">
-          <p className="text-xs sm:text-sm mb-4 md:mb-0 text-center md:text-left">
-            &copy; {new Date().getFullYear()} AsramWojak. All rights reserved.
-          </p>
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6">
-            <a
-              className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm cursor-pointer text-center hover:scale-105 transform"
-              onClick={() => handleClick("Privacy Policy is not added yet!")}
-            >
-              Privacy Policy
-            </a>
-            <a
-              className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm cursor-pointer text-center hover:scale-105 transform"
-              onClick={() => handleClick("Terms of Service is not added yet!")}
-            >
-              Terms of Service
-            </a>
-            <a
-              className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm cursor-pointer text-center hover:scale-105 transform"
-              onClick={() => handleClick("Contact Us page is not added yet!")}
-            >
-              Contact Us
-            </a>
+        <div className="flex flex-col items-center sm:flex-row sm:justify-between">
+          <div className="mb-6 sm:mb-0 text-center sm:text-left">
+            <p className="text-xs sm:text-sm font-light">
+              &copy; {new Date().getFullYear()} AsramWojak. All rights reserved.
+            </p>
           </div>
+          <nav className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+            <Link href="/privacy" className="footer-link mb-2 sm:mb-0">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="footer-link mb-2 sm:mb-0">
+              Terms of Service
+            </Link>
+            <Link href="/contact" className="footer-link mb-2 sm:mb-0">
+              Contact Us
+            </Link>
+            <a
+              href="https://github.com/Stawa/AsramWojakWeb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link flex items-center"
+            >
+              <FaGithub className="mr-2" /> GitHub
+            </a>
+          </nav>
         </div>
       </div>
     </footer>

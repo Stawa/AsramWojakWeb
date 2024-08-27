@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.footer-link {
+  @apply text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-sm font-medium;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
