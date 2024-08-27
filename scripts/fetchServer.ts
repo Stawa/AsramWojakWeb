@@ -12,13 +12,12 @@ interface ServerData {
 
 async function fetchServerData(): Promise<ServerData> {
   const { data } = await axios.get(SERVER_URL);
-  console.log(data)
   return {
     isOnline: data.online,
     playerCount: data.players?.online || 0,
     maxPlayer: data.players?.max || 0,
     version: data.version || "Unknown",
-    software: data.software || "Unknown"
+    software: data.software || "Unknown",
   };
 }
 

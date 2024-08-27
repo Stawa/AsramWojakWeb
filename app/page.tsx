@@ -5,13 +5,16 @@ import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import FetchServer from "@/scripts/fetchServer";
+import Flag from "react-world-flags";
 import {
   FaUser,
   FaPaperPlane,
   FaSignal,
   FaCopy,
   FaCheck,
+  FaEye,
 } from "react-icons/fa";
+import { LuLogIn } from "react-icons/lu";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
 
 const ClipboardButton: React.FC<{ text: string; buttonStyle: string }> = ({
@@ -53,10 +56,10 @@ export default function Home() {
 
   React.useEffect(() => {
     async function fetchServerStatus() {
-      setLoading(true); // Set loading to true before fetching
+      setLoading(true);
       const data = await FetchServer();
       setServerStatus(data);
-      setLoading(false); // Set loading to false after fetching
+      setLoading(false);
     }
     fetchServerStatus();
   }, []);
@@ -111,14 +114,20 @@ export default function Home() {
                   data-target="#server-ips"
                   className="group relative px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105"
                 >
-                  <span className="relative z-10">Join Server</span>
+                  <span className="relative z-10">
+                    <LuLogIn className="inline-block mr-2 mb-1" />
+                    Join Server
+                  </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
                 </button>
                 <button
                   data-target="#features"
                   className="group relative px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105"
                 >
-                  <span className="relative z-10">View Features</span>
+                  <span className="relative z-10">
+                    <FaEye className="inline-block mr-2 mb-1" />
+                    View Features
+                  </span>
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-700 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
                 </button>
               </div>
@@ -132,11 +141,17 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-teal-900/20 opacity-30"></div>
           <div className="container mx-auto px-6">
-            <h2 className="text-4xl font-bold mb-8 text-center">
+            <h2 className="text-4xl font-bold mb-2 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
               Server Status
             </h2>
+            <div className="mb-8 text-center">
+              <p className="text-lg text-gray-300">
+                Stay updated with our server's real-time status. Check player
+                count, version, and more.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               <div className="bg-gray-900 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:bg-gray-800 border border-blue-600">
                 <div className="flex items-center justify-center mb-4">
                   <FaSignal
@@ -180,6 +195,17 @@ export default function Home() {
                 </p>
                 <p className="text-center text-sm text-gray-500">
                   {loading ? "Loading..." : serverStatus.version}
+                </p>
+              </div>
+              <div className="bg-gray-900 rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:bg-gray-800 border border-red-600">
+                <div className="flex items-center justify-center mb-4">
+                  <Flag code="ID" height="60" width="60" />
+                </div>
+                <p className="text-center text-xl font-medium text-red-300">
+                  Indonesia
+                </p>
+                <p className="text-center text-sm text-gray-500">
+                  Server Region
                 </p>
               </div>
             </div>
@@ -285,10 +311,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-teal-900/20 opacity-30"></div>
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-teal-300">
+              <h2 className="text-4xl font-bold mb-2 text-teal-300">
                 Features
               </h2>
-              <p className="text-lg md:text-xl mx-auto mt-4 max-w-2xl text-gray-400">
+              <p className="text-lg md:text-xl mx-auto max-w-2xl text-gray-400">
                 Discover what makes Asram Wojak special and unique.
               </p>
             </div>
