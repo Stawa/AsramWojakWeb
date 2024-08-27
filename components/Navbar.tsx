@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FiExternalLink, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 

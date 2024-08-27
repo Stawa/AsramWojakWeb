@@ -167,8 +167,8 @@ export default function Home() {
                     title: loading
                       ? "Loading..."
                       : serverStatus.isOnline
-                      ? "Online"
-                      : "Offline",
+                        ? "Online"
+                        : "Offline",
                     subtitle: "Server Status",
                     borderColor: "border-blue-600",
                   },
