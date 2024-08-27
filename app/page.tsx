@@ -146,8 +146,8 @@ export default function Home() {
             </h2>
             <div className="mb-8 text-center">
               <p className="text-lg text-gray-300">
-                Stay updated with our server's real-time status. Check player
-                count, version, and more.
+                Stay updated with our server&apos;s real-time status. Check
+                player count, version, and more.
               </p>
             </div>
 
